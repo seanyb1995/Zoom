@@ -1,0 +1,268 @@
+//----------------------------------------------------------------login page--//
+// global colours
+$red: #fc3a5d;
+$grey: #ccc;
+$yellow: #fdc654;
+
+// global fonts
+body,
+::placeholder {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 4fr);
+  grid-auto-rows: minmax(33vh, auto);
+  .login-form {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+    form {
+      .username,
+      .password,
+      .email{
+        position: relative;
+        margin-bottom: 16px;
+        input {
+          width: 100%;
+          height: 36px;
+          border-radius: 20px;
+          text-align: center;
+          outline: none;
+          transition: all 0.3s;
+          background: rgba(255, 255, 255, 0.1);
+          border: 2px solid $grey;
+          cursor: pointer;
+        }
+        input::placeholder {
+          font-weight: bold;
+          color: $grey;
+        }
+        input:hover,
+        input:focus {
+          border: 2px solid $red;
+          transition: all 0.3s;
+        }
+        input:hover::placeholder {
+          color: $red;
+        }
+        .icon-left {
+          position: absolute;
+          color: $red;
+          left: 15px;
+          top: 0;
+          display: flex;
+          align-items: center;
+          height: 100%;
+          justify-content: center;
+        }
+        .icon-right {
+          position: absolute;
+          color: $grey;
+          right: 20px;
+          top: 0;
+          display: flex;
+          align-items: center;
+          height: 100%;
+          justify-content: center;
+          label {
+            i {
+              cursor: pointer;
+            }
+          }
+          .fa-eye {
+            color: $red;
+          }
+        }
+        input[type=checkbox] {
+          display: none;
+        }
+        .checkbox-container {
+          position: absolute;
+        }
+      }
+      .remember-me {
+        display: inline-block !important;
+        position: relative;
+        display: flex;
+        align-items: center;
+        input[type=checkbox] {
+          visibility: hidden;
+        }
+        #remember + label {
+          display: inline-block;
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+          background: $red;
+          top: 15px;
+          left: 15px;
+        }
+        #remember:checked + label::before {
+          display: block;
+          content: "\2713";
+          text-align: center;
+          font-size: 16px;
+          color: white;
+        }
+        p {
+          display: inline-block;
+          margin-left: 20px;
+          margin-top: 16px;
+          font-weight: bold;
+          color: $yellow;
+          cursor: pointer;
+        }
+      }
+      .terms-and-conditions {
+        display: inline-block !important;
+        position: relative;
+        display: flex;
+        align-items: center;
+        input[type=checkbox] {
+          visibility: hidden;
+        }
+        #termsandconditions + label {
+          display: inline-block;
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+          background: $red;
+          top: 15px;
+          left: 15px;
+        }
+        #termsandconditions:checked + label::before {
+          display: block;
+          content: "\2713";
+          text-align: center;
+          font-size: 16px;
+          color: white;
+        }
+        p {
+          display: inline-block;
+          margin-left: 20px;
+          margin-top: 16px;
+          font-weight: bold;
+          color: $grey;
+          a {
+            color: $yellow;
+            cursor: pointer;
+          }
+          a:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      .forgot-password {
+        display: inline-block;
+        float: right;
+        margin-top: 16px;
+         a {
+          color: #ccc;
+          text-decoration: none;
+          font-weight: bold;
+          outline: none;
+          transition: all 0.2s;
+        }
+        a:hover,
+        a:focus {
+          color: #fdc654;
+          transition: all 0.2s;
+        }
+      }
+      .login {
+        button {
+          margin: 0 auto;
+          margin-top: 16px;
+          background: #fc3a5d;
+          display: block;
+          color: white;
+          width: 100%;
+          border: none;
+          border-radius: 40px;
+          padding: 12px 0;
+          text-transform: uppercase;
+          font-weight: bold;
+          margin-bottom: 32px;
+          outline: none;
+          cursor: pointer;
+          -moz-transition: all 500ms ease-out;
+          -webkit-transition: all 500ms ease-out;
+          -o-transition: all 500ms ease-out;
+          transition: all 500ms ease-out;
+        }
+        .loading {
+          margin: 0 auto;
+          margin-top: 16px;
+          background: #fc3a5d;
+          display: block;
+          color: white;
+          width: 40px;
+          border: none;
+          border-radius: 40px;
+          padding: 12px 0;
+          text-transform: uppercase;
+          font-weight: bold;
+          outline: none;
+          cursor: pointer;
+          -moz-transition: all 500ms ease-out;
+          -webkit-transition: all 500ms ease-out;
+          -o-transition: all 500ms ease-out;
+          transition: all 500ms ease-out;
+        }
+        .color {
+          display: block;
+          width: 0;
+          height: 0;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%,-50%);
+          position: absolute;
+          transition: 0.8s ease;
+          border-radius: 50%;
+          background-color: transparent;
+        }
+        .expanded {
+          width: 200%;
+          padding-bottom: 200%;
+          height: auto;
+          background-color: #fc3a5d;
+          z-index: 9999;
+        }
+      }
+      .sign-up,
+      .sign-in {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        top: 55vh;
+        text-align: center;
+        margin-top: 16px;
+        color: #fc3a5d;
+        font-weight: bold;
+        p {
+           a {
+            color: #ccc;
+            text-decoration: none;
+            font-weight: bold;
+            outline: none;
+            transition: all 0.2s;
+          }
+          a:hover,
+          a:focus {
+            color: #fdc654;
+            transition: all 0.2s;
+          }
+        }
+      }
+      .sign-in {
+        top: 65vh;
+      }
+    }
+  }
+}
